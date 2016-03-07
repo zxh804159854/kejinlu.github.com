@@ -8,7 +8,7 @@ tags:
 - Accessibility
 ---
 
-### 前言
+## 前言
 
 VoiceOver是苹果“读屏”技术的名称，属于辅助功能的一部分。VoiceOver可以读出屏幕上的信息，以帮助盲人进行人机交互。
 这项技术在苹果的各个系统中都可以看到，OS X，iOS，watchOS，甚至tvOS。
@@ -17,7 +17,7 @@ VoiceOver是苹果“读屏”技术的名称，属于辅助功能的一部分�
 
 虽然说苹果默认的UI组件都已经默认支持VoiceOver功能了，但是通常情况下App还是需要对VoiceOver进行适配和优化的，比如说一些自定义复杂UI组件。
 
-### 基本使用
+## 基本使用
 iPhone上开启VoiceOver功能后，就可以通过 **单指左右轻扫** 来遍历当前界面中的所有的AccessibilityElement（可以被VoiceOver访问的UI元素）,当一个AccessibilityElement被选中后，VoiceOver会将AccessibilityElement的信息读出来。 **单指轻点两次** 能够激活当前元素对应的操作，比如当前AccessibilityElement是一个按钮，那么对应的就是按钮的Action事件。
 
 简单点来说在App开发过程中关于VoiceOver我们需要关注如下几点：
@@ -52,7 +52,7 @@ public func UIAccessibilityConvertFrameToScreenCoordinates(rect: CGRect, _ view:
 
 至于AccessibilityElement的事件，最简单的莫过于上面提到 **单指轻点两次** 能够激活当前元素对应的操作了,如果当前AccessibilityElement实现的`public func accessibilityActivate() -> Bool`这个方法返回true，那边此逻辑将被调用，否则相当于在AccessibilityElement的accessibilityActivationPoint这个位置点上进行了一次Tap操作。
 
-### 高级特性
+## 高级特性
 #### Accessibility Container
 设想下这样的一个场景，一个UIView，内部包含一组用户可以进行交互的内容，每一个内容之间是独立的，但是这些内容不是以子View的形式存在，而是通过Quarz 2D或者Core Text渲染而成，所以这部分内容无法通过上面的方式变成AccessibilityElement。这种情况UIView需要按照UIAccessibilityContainer的方式，来将内部的每一个独立的内容都描述成UIAccessibilityElement的实例，这个时候这个UIView我们称之为Accessibility Container。
 
@@ -127,7 +127,7 @@ Accessibility提供了一系列的通知，可以完成一些特定的需求。�
 UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, self.myFirstElement)
 ```                             
 
-### 建议
+## 建议
 
 - AccessibilityElement的信息尽量简洁，accessibilityLabel不要包含提示性质的文案，避免信息干扰
 - TableView的每一个Cell的信息尽量合并，使得Cell变成一个整体的AccessibilityElement，避免无意义的冗余元素之间切换的操作。Cell中有多个按钮的时候，可以考虑使用Magic Tap的方式，Magic Tap的Action中弹出sheet样式的UIAlertController来供用户操作。
@@ -139,6 +139,6 @@ UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, self.m
 -----
 
 参考文档:
-[https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIAccessibility_Protocol/index.html](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIAccessibility_Protocol/index.html)
-[https://developer.apple.com/library/prerelease/ios/featuredarticles/ViewControllerPGforiPhoneOS/SupportingAccessibility.html](https://developer.apple.com/library/prerelease/ios/featuredarticles/ViewControllerPGforiPhoneOS/SupportingAccessibility.html)
-[https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/iPhoneAccessibility/Accessibility_on_iPhone/Accessibility_on_iPhone.html](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/iPhoneAccessibility/Accessibility_on_iPhone/Accessibility_on_iPhone.html)
+[UIAccessibility Protocol](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIAccessibility_Protocol/index.html)
+[Supporting Accessibility](https://developer.apple.com/library/prerelease/ios/featuredarticles/ViewControllerPGforiPhoneOS/SupportingAccessibility.html)
+[Accessibility Programming Guide for iOS](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/iPhoneAccessibility/Accessibility_on_iPhone/Accessibility_on_iPhone.html)
