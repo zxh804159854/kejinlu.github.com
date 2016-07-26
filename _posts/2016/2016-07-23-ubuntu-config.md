@@ -25,35 +25,47 @@ QNAP TS-453 Pro 四核，四盘位，四千兆网口，内存升级到8G。内�
 ### 1. python工作环境配置
 Ubuntu 16.04安装好了之后默认就带了2.x和3.x的python版本，但是为了更方便的进行版本管理，决定通过pyenv来安装和管理python版本。
 安装pyenv之前先装下git
+
 ```bash
 sudo apt-get install git
 ```
+
 然后进行pyenv的安装
+
 ```bash
 git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 ```
+
 然后在～/.bashrc 末尾加上下面三行代码
+
 ```bash
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 ```
+
 然后重启Terminal，输入pyenv看命令是否起作用。
 
 下面便可以通过pyenv来安装你所需要的python的版本了，比如
+
 ```bash
 pyenv install 3.5.1
 ```
+
 这个时候你会发现 悲剧发生了，由于国内的特定网络原因，python安装的下载速度及其缓慢，基本是10k以内的速度无法忍受（突然想到以前python官网一度无法访问），好在还是由办法解决这个问题的，你可以先想办法到官网把安装包单独下载好，比如我讲下载好的包`Python-3.5.1.tar.xz`放到`～/Downloads`目录下，然后指定build缓存目录后，再运行install命令
+
 ```bash
 export PYTHON_BUILD_CACHE_PATH=~/Downloads
 pyenv install 3.5.1
 pyenv rehash
 ```
+
 安装多个版本的python之后可以通过下面的命令来切换全局的python的版本
+
 ```bash
 pyenv global 3.5.1
 ```
+
 安装后对应版本的pip也是安装好了的。
 
 最近对深度学习有点感兴趣，所以正好打算装个TensorFlow玩一玩，找到官方的安装指南，选择正确的版本进行安装， [https://www.tensorflow.org/versions/r0.9/get_started/os_setup.html#pip-installation](https://www.tensorflow.org/versions/r0.9/get_started/os_setup.html#pip-installation), NAS的配置注定只能使用CPU的，然后选择对应的python版本和Ubuntu的架构版本
@@ -62,7 +74,9 @@ pyenv global 3.5.1
 export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.9.0-cp35-cp35m-linux_x86_64.whl
 pip install --upgrade $TF_BINARY_URL
 ```
+
 这个时候你会发现老问题又来了，pip的库在国内访问慢，所以这个时候你最好指定一个国内的pip源进行安装，这里选择豆瓣的源
+
 ```bash
 pip install --upgrade $TF_BINARY_URL  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
 ```
@@ -71,24 +85,29 @@ pip install --upgrade $TF_BINARY_URL  -i http://pypi.douban.com/simple/ --truste
 
 ### 2.配置Java环境
 Java目前一般有open jdk，还有oracle jdk，这里安装oracle jdk，你可以自己到oracle官网下载，手动进行安装，也可以通过添加源的方式使用apt-get工具进行安装
+
 ```bash
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
 ```
+
 安装好了之后可以进行配置，比如如果你系统中安装有多个版本的jdk，那么就可以通过下面的方式来指定默认使用的jdk的版本
+
 ```bash
 sudo update-alternatives --config java
 ```
+
 ### 3.其他常用软件安装
 - 编辑器可以使用github的Atom或者sublime text 3
 - markdown编辑器推荐使用haroopad
 - 系统优化配置可以使用 `sudo apt-get install unity-tweak-tool`， 此工具可以设定诸如Launcher的位置等
 - 实时顶端状态栏显示系统cpu内存等信息可以通过 indicator-multiload 来shi实现 `sudo apt-get install indicator-multiload`
 - 中文字体可以选择微软雅黑，首先到Windows系统下拷贝过来字体文件，进行下列操作之后，便可以选择微软雅黑字体了
-```bash
+
+	```bash
 sudo cp msyh.ttf /usr/share/fonts/
 sudo mkfontscale
 sudo mkfontdir
 sudo fc-cache -fv
-```
+	```
