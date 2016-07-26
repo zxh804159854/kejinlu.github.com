@@ -10,6 +10,8 @@ tags:
 - pyenv
 - jdk
 ---
+<img src="http://ww3.sinaimg.cn/large/65cc0af7gw1f67pfmy2y2j21hc0xc1kx.jpg" style="width: 50%; height: 50%"/>
+
 
 还记得大学那会儿，特别爱折腾系统，装的最多估计就是Ubuntu系统了，也是从那时候起开始接触Linux，工作之后也就懒得折腾了，选择了同属UNIX系得macOS 。所以很长的时间里就一直使用macOS了。
 
