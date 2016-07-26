@@ -99,12 +99,12 @@ sudo update-alternatives --config java
 ```
 
 ### 3.其他常用软件安装
-- 对应一些独立的第三方下载的deb包，推荐使用GDebi Package Installer `sudo apt-get install gdebi`
--  中文输入法推荐搜狗输入法，安装搜狗输入法前先安装依赖的包 `sudo apt-get install fcitx libssh2-1`，系统设置中将输入法系统设置为fcitx，然后下载搜狗输入法的包，可以从这里下载 [http://download.pchome.net/utility/lan/ime/download-3955.html](http://download.pchome.net/utility/lan/ime/download-3955.html) ,官网的包安装有问题
+- 对应一些独立的第三方下载的deb包，推荐使用GDebi Package Installer （`sudo apt-get install gdebi`）
+-  中文输入法推荐搜狗输入法，安装搜狗输入法前先安装依赖的包 （`sudo apt-get install fcitx libssh2-1`），系统设置中将输入法系统设置为fcitx，然后下载搜狗输入法的包，可以从这里下载 [http://download.pchome.net/utility/lan/ime/download-3955.html](http://download.pchome.net/utility/lan/ime/download-3955.html) ,官网的包安装有问题
 - 编辑器可以使用github的Atom或者sublime text 3
 - markdown编辑器推荐使用haroopad
-- 系统优化配置可以使用 `sudo apt-get install unity-tweak-tool`， 此工具可以设定诸如Launcher的位置等
-- 实时顶端状态栏显示系统cpu内存等信息可以通过 indicator-multiload 来shi实现 `sudo apt-get install indicator-multiload`
+- 系统优化配置可以使用Unity Tweak Tool （`sudo apt-get install unity-tweak-tool`）， 此工具可以设定诸如Launcher的位置等
+- 实时顶端状态栏显示系统cpu内存等信息可以通过 indicator-multiload 来shi实现 （`sudo apt-get install indicator-multiload`）
 - 中文字体可以选择微软雅黑，首先到Windows系统下拷贝过来字体文件，进行下列操作之后，便可以选择微软雅黑字体了
 
 	```bash
