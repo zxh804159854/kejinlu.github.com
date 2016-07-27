@@ -3,4 +3,5 @@ url: http://geeklu.com
 author: 卢克
 highlighter: rouge
 markdown: redcarpet
+timezone: Asia/Shanghai
 paginate: 24
