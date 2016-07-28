@@ -107,7 +107,8 @@ sudo update-alternatives --config java
 - 系统优化配置可以使用Unity Tweak Tool （`sudo apt-get install unity-tweak-tool`）， 此工具可以设定诸如Launcher的位置等
 - 实时顶端状态栏显示系统cpu内存等信息可以通过 indicator multiload 来shi实现 （`sudo apt-get install indicator-multiload`）
 - 中文字体可以选择微软雅黑，首先到Windows系统下拷贝过来字体文件，进行下列操作之后，便可以选择微软雅黑字体了
-```bash
+
+	```bash
 sudo cp msyh.ttf /usr/share/fonts/
 sudo mkfontscale
 sudo mkfontdir
