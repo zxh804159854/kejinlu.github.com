@@ -7,7 +7,7 @@ tags:
 - Python
 ---
 
-Disqus 锅内貌似又没发访问了，博客的评论功能基本就废了，想想要不换个国产的得了，至少能用。
+Disqus 国内貌似又没发访问了，博客的评论功能基本就废了，想想要不换个国产的得了，至少能用。
 所以最终综合了一下选择了多说，注册，更改嵌入代码，也是很快，嵌入的时候有几个参数需要设置一下。
 {% raw %}
 ```js
@@ -29,4 +29,4 @@ Disqus的数据主要包括三个部分：category，thread，post。
 然后我们再看看多说导入数据的格式要求，[http://dev.duoshuo.com/docs/500d0629448f04782b00000a](http://dev.duoshuo.com/docs/500d0629448f04782b00000a) 这个就比较简单了，就thread和post。
 接下来的事情就上脚本，做数据转换了。
 
-直接python3来伺候了，python用来做文本处理还是比较便捷的，直接内置了诸如xml，json，optparse这些编辑的lib，手起刀落，一个转换的工具就好了，[https://github.com/kejinlu/disqus-migrate-to-duoshuo](https://github.com/kejinlu/disqus-migrate-to-duoshuo)。
+直接python3来伺候了，python用来做文本处理还是比较便捷的，直接内置了诸如xml，json，optparse这些便捷的lib，手起刀落，一个转换的工具就好了，[https://github.com/kejinlu/disqus-migrate-to-duoshuo](https://github.com/kejinlu/disqus-migrate-to-duoshuo)。
