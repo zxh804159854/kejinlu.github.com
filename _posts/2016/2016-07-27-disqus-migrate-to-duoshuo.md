@@ -9,10 +9,14 @@ tags:
 
 Disqus 锅内貌似又没发访问了，博客的评论功能基本就废了，想想要不换个国产的得了，至少能用。
 所以最终综合了一下选择了多说，注册，更改嵌入代码，也是很快，嵌入的时候有几个参数需要设置一下。
-
+{% raw %}
 ```js
-<div class="ds-thread" data-thread-key="{{ page.url | remove:'index.html' }}" data-title="{{ page.title }}" data-url="{{ site.url }}{{ page.url | remove:'index.html' }}"></div>
+<div class="ds-thread" data-thread-key="{{ page.url | remove:'index.html' }}" 
+data-title="{{ page.title }}" 
+data-url="{{ site.url }}{{ page.url | remove:'index.html' }}">
+</div>
 ```
+{% endraw %}
 
 这里需要自己设置的是 thread-key 表示文章的唯一标识，这里取了url的path部分；title 也就是文章的标题；以及当前文章的url。这些都可以通过jekyll的相关变量来实现。
 设置好了，可以尝试访问下，然后就可以在多说的后台中看到数据了。
