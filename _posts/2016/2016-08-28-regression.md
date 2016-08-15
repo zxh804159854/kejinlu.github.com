@@ -70,7 +70,7 @@ $$
 是三维坐标系中的曲面，多于二元的函数的几何意义就不太好表达了。
 
 一元线性回归函数在二维坐标系统其实就是一条直线，我们现将上述的那些训练数据在二维坐标系中表示出来。   
-<img src="http://ww2.sinaimg.cn/large/65cc0af7gw1f6r04s9c76j20q90hi75x.jpg" width="50%" height="50%" />​      
+<img src="http://ww2.sinaimg.cn/large/65cc0af7gw1f6r04s9c76j20q90hi75x.jpg" width="80%" height="80%" />​      
 
 图上散落的那些交叉点就是上表中的数据，然后我们的目标就是根据这些点拟合出一条直线，然后再通过这条直线，对新的广告费用的输入，给出对应的收入的评估。   
 如果通过机器学习的概念来描述这个过程大概是下面的样子：   
@@ -103,7 +103,7 @@ $$
 
 > 也许你可以找出其他的误差代价函数，但是对于线性回归问题，平方和误差代价函数是最好的选择。
 
-### 1.3. 最小二乘法
+### 1.3. 几何意义
 为了简化问题，我们先假设 $\theta_0$等于0，也就是直线经过原点，问题就简化成   
 $$
 J(\theta_1) = \ \frac{ 1 }{ 2*m }\sum_{i=0}^m (\theta_1x^{(i)} - y^{(i)})^2
@@ -130,15 +130,24 @@ $$
 
 我们再来回到之前的问题的求解，将广告费和销售额一个个的代入进行计算：
 $$
-J(\theta_0, \theta_1) = \frac{ 1 }{ 2*m }\sum_{i=0}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})^2   \\
+J(\theta_0, \theta_1) = \frac{ 1 }{ 2*m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})^2   \\
 J(\theta_0, \theta_1) = \frac{ 1 }{ 2*10 }*[ (\theta_0 + \theta_1*4 - 9)^2 + \\ (\theta_0 + \theta_1*8 - 20)^2+\\ (\theta_0 + \theta_1*9 - 22)^2+\\ (\theta_0 + \theta_1*8 - 15)^2+\\ (\theta_0 + \theta_1*7 - 17)^2+\\ (\theta_0 + \theta_1*12 - 23)^2+\\ (\theta_0 + \theta_1*6 - 18)^2+\\ (\theta_0 + \theta_1*10 - 25)^2+\\ (\theta_0 + \theta_1*6 - 10)^2+\\ (\theta_0 + \theta_1*9 - 20)^2] \\
 J(\theta_0, \theta_1) =\frac{ 1 }{ 20 } (10*\theta_0^2+158*\theta_0*\theta_1-358*\theta_0+671*\theta_1^2-3014*\theta_1+3457) \\
 $$
-图形化后是一个曲面如下图，所以最优的几何意义就是 $J(\theta_0, \theta_1)$ 最小。  
+图形化后是一个曲面如下图，所以最优的几何意义就是去面上在 $J(\theta_0, \theta_1)$ 轴上最小的点对应的 $\theta_0$ 和 $\theta_1$的值。  
 <img src="http://ww2.sinaimg.cn/large/65cc0af7gw1f6tprb61c1j20l70hp0wn.jpg" width="80%" height="80%" />   
 
-### 1.4. 梯度下降法
+### 1.4. 最小二乘法
+在实际的计算中，比较常用的有最小二乘法和梯度下降法，这节先讲最小二乘法，这个方法其实在高中的数学课本中以公式的形式存在的。
+$$
+\begin{align}
+\hat{b} = \frac{\sum_{i=1}^nx_iy_i-n\bar{x}\bar{y}}{\sum_{i=1}^nx_i^2-n\bar{x}^2}\\
+\hat{a}=\bar{y}-\hat{b}\bar{x}
+\end{align}
+$$
+
+### 1.5. 梯度下降法
 
 ## 2. 逻辑回归
-## 3. softmax回归
+## 3. Softmax回归  
 未完待续...
