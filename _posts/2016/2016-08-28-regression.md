@@ -123,27 +123,26 @@ $$
 
 <img src="http://ww1.sinaimg.cn/large/65cc0af7gw1f6tdlw2ndbj20q90hiwfi.jpg" width="80%" height="80%" />   
 
-可以看到当 $\theta_1$取1时，J取得最小时，所以我要所求的回归函数是  
+可以看到当 $\theta_1$取1时，J取得最小时，所以我要所求的回归函数是     
 $$
 h(x) = x
 $$
 
-我们再来回到之前的问题的求解，将广告费和销售额一个个的代入进行计算：
+我们再来回到之前的问题的求解，将广告费和销售额一个个的代入进行计算：     
 $$
 J(\theta_0, \theta_1) = \frac{ 1 }{ 2*m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})^2   \\
 J(\theta_0, \theta_1) = \frac{ 1 }{ 2*10 }*[ (\theta_0 + \theta_1*4 - 9)^2 + \\ (\theta_0 + \theta_1*8 - 20)^2+\\ (\theta_0 + \theta_1*9 - 22)^2+\\ (\theta_0 + \theta_1*8 - 15)^2+\\ (\theta_0 + \theta_1*7 - 17)^2+\\ (\theta_0 + \theta_1*12 - 23)^2+\\ (\theta_0 + \theta_1*6 - 18)^2+\\ (\theta_0 + \theta_1*10 - 25)^2+\\ (\theta_0 + \theta_1*6 - 10)^2+\\ (\theta_0 + \theta_1*9 - 20)^2] \\
 J(\theta_0, \theta_1) =\frac{ 1 }{ 20 } (10*\theta_0^2+158*\theta_0*\theta_1-358*\theta_0+671*\theta_1^2-3014*\theta_1+3457) \\
-$$
+$$    
 图形化后是一个曲面如下图，所以最优的几何意义就是去面上在 $J(\theta_0, \theta_1)$ 轴上最小的点对应的 $\theta_0$ 和 $\theta_1$的值。  
 <img src="http://ww2.sinaimg.cn/large/65cc0af7gw1f6tprb61c1j20l70hp0wn.jpg" width="80%" height="80%" />   
 
 ### 1.4. 最小二乘法
-在实际的计算中，比较常用的有最小二乘法和梯度下降法，这节先讲最小二乘法，这个方法其实在高中的数学课本中以公式的形式存在的。
+在实际的计算中，比较常用的有最小二乘法和梯度下降法，这节先讲最小二乘法，这个方法其实在高中的数学课本中以公式的形式存在的。     
 $$
-\begin{align}
 \hat{b} = \frac{\sum_{i=1}^nx_iy_i-n\bar{x}\bar{y}}{\sum_{i=1}^nx_i^2-n\bar{x}^2}\\
 \hat{a}=\bar{y}-\hat{b}\bar{x}
-\end{align}
+
 $$
 
 ### 1.5. 梯度下降法
