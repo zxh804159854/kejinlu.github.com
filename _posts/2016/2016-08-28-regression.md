@@ -138,7 +138,8 @@ $$
 <img src="http://ww2.sinaimg.cn/large/65cc0af7gw1f6tprb61c1j20l70hp0wn.jpg" width="80%" height="80%" />   
 
 ### 1.4. 最小二乘法
-在实际的计算中，比较常用的有最小二乘法和梯度下降法，这节先讲最小二乘法，这个方法其实在高中的数学课本中以公式的形式存在的。     
+在实际的计算中，比较常用的有最小二乘法和梯度下降法，这节先讲最小二乘法，这个方法其实在高中的数学课本中以公式的形式存在的。    
+ 
 $$
 \hat{b} =\frac{\sum_{i=1}^nx_iy_i-n\bar{x}\bar{y}}{\sum_{i=1}^nx_i^2-n\bar{x}^2}\\
 \hat{a}=\bar{y}-\hat{b}\bar{x}
