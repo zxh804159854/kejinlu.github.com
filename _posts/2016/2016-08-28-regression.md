@@ -138,11 +138,22 @@ $$
 <img src="http://ww2.sinaimg.cn/large/65cc0af7gw1f6tprb61c1j20l70hp0wn.jpg" width="80%" height="80%" />   
 
 ### 1.4. 最小二乘法
-在实际的计算中，比较常用的有最小二乘法和梯度下降法，这节先讲最小二乘法，这个方法其实在高中的数学课本中以公式的形式存在的。    
- 
+在实际的计算中，比较常用的有最小二乘法和梯度下降法，这节先讲最小二乘法，这个方法其实在高中的数学课本中以公式的形式存在的,假设样本数据容量为n，线性方程为 `y = a + bx`，那么对应的a，b分别为    
+
+$$  
+\begin{cases}
+b =\frac{\sum_{i=1}^nx_iy_i-n\bar{x}\bar{y}}{\sum_{i=1}^nx_i^2-n\bar{x}^2}\\
+a=\bar{y}-\hat{b}\bar{x}
+\end{cases}
 $$
-\hat{b} =\frac{\sum_{i=1}^nx_iy_i-n\bar{x}\bar{y}}{\sum_{i=1}^nx_i^2-n\bar{x}^2}\\
-\hat{a}=\bar{y}-\hat{b}\bar{x}
+
+对于 $h_{(\theta)}(x) = \theta_0 + \theta_1x$ 公式则为：
+
+$$
+\begin{cases}
+\theta_1 =\frac{\sum_{i=1}^nx^{(i)}h(x^{(i)})-\frac{1}{n}\sum_{i=1}^nx^{(i)}\sum_{i=1}^nh(x^{(i)})}{\sum_{i=1}^nx_i^2-n\bar{x}^2}\\
+\theta_0=\frac{1}{n}\sum_{i=1}^nh(x^{(i)})-\theta_1\bar{x}
+\end{cases}
 $$
 
 ### 1.5. 梯度下降法
