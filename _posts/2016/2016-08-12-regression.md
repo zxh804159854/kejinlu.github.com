@@ -186,7 +186,7 @@ $$
  \frac{\partial}{\partial \theta_0}J(\theta_0, \theta_1) = \frac{ 1 }{ m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)}) \\
   \frac{\partial}{\partial \theta_1}J(\theta_0, \theta_1) = \frac{ 1 }{ m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})*x^{(i)}
 \end{cases}
-$$
+$$    
 
 我们令偏导数都等于0,然后进行一步步的计算，计算过程其实很简单，主要用到了求和公式的一些特性罢了，详细的过程如下：
 
