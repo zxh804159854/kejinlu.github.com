@@ -168,7 +168,7 @@ $$
 J^{'}(\theta_1) = \ \frac{ 7 }{ 3 }*2*{ (\theta_1 - 1)*1}\\
 \qquad\Downarrow \\
 J^{'}(\theta_1) = \ \frac{ 14 }{ 3 }{ (\theta_1 - 1)}
-$$
+$$    
 我们令到函数等于0可以算得当 $\theta_1$ 等于1的时候，代价函数取得最小值0。   
 对于上面的二元的代价函数 $J(\theta_0, \theta_1) = \frac{ 1 }{ 2*m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})^2$ 则需要分别对 $\theta_0$ 和 $\theta_1$ 求偏导：
 
