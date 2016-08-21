@@ -3,4 +3,5 @@ url: http://geeklu.com
 author: 卢克
 highlighter: rouge
 timezone: Asia/Shanghai
+gems: [jekyll-paginate]
 paginate: 24

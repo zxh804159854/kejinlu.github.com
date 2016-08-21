@@ -131,7 +131,9 @@ $$
 我们再来回到之前的问题的求解，将广告费和销售额一个个的代入进行计算：     
 $$
 J(\theta_0, \theta_1) = \frac{ 1 }{ 2*m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})^2   \\
-J(\theta_0, \theta_1) = \frac{ 1 }{ 2*10 }*[ (\theta_0 + \theta_1*4 - 9)^2 + \\ (\theta_0 + \theta_1*8 - 20)^2+\\ (\theta_0 + \theta_1*9 - 22)^2+\\ (\theta_0 + \theta_1*8 - 15)^2+\\ (\theta_0 + \theta_1*7 - 17)^2+\\ (\theta_0 + \theta_1*12 - 23)^2+\\ (\theta_0 + \theta_1*6 - 18)^2+\\ (\theta_0 + \theta_1*10 - 25)^2+\\ (\theta_0 + \theta_1*6 - 10)^2+\\ (\theta_0 + \theta_1*9 - 20)^2] \\
+J(\theta_0, \theta_1) = \frac{ 1 }{ 2*10 }*[ (\theta_0 + \theta_1*4 - 9)^2 + \\ (\theta_0 + \theta_1*8 - 20)^2+\\ (\theta_0 + \theta_1*9 - 22)^2+\\ (\theta_0 + \theta_1*8 - 15)^2+\\ (\theta_0 + \theta_1*7 - 17)^2+\\ (\theta_0 + \theta_1*12 - 23)^2+\\ (\theta_0 + \theta_1*6 - 18)^2+\\ (\theta_0 + \theta_1*10 - 25)^2+\\ (\theta_0 + \theta_1*6 - 10)^2+\\ (\theta_0$$
+J(\theta_1) = \ \frac{ 7 }{ 3 }{ (\theta_1 - 1)^2}
+$$ + \theta_1*9 - 20)^2] \\
 J(\theta_0, \theta_1) =\frac{ 1 }{ 20 } (10*\theta_0^2+158*\theta_0*\theta_1-358*\theta_0+671*\theta_1^2-3014*\theta_1+3457) \\
 $$    
 图形化后是一个曲面如下图，所以最优的几何意义就是去面上在 $J(\theta_0, \theta_1)$ 轴上最小的点对应的 $\theta_0$ 和 $\theta_1$的值。  
@@ -151,10 +153,88 @@ $$
 
 $$
 \begin{cases}
-\theta_1 =\frac{\sum_{i=1}^nx^{(i)}h(x^{(i)})-\frac{1}{n}\sum_{i=1}^nx^{(i)}\sum_{i=1}^nh(x^{(i)})}{\sum_{i=1}^nx_i^2-n\bar{x}^2}\\
-\theta_0=\frac{1}{n}\sum_{i=1}^nh(x^{(i)})-\theta_1\bar{x}
+\theta_1 =\frac{\sum_{i=1}^nx^{(i)}y^{(i)}-\frac{1}{n}\sum_{i=1}^nx^{(i)}\sum_{i=1}^ny^{(i)}}{\sum_{i=1}^nx_i^2-\frac{1}{n}(\sum_{i=1}^nx^{(i)})^2}\\
+\theta_0=\frac{1}{n}(\sum_{i=1}^nh(x^{(i)})-\theta_1\sum_{i=1}^nx^{(i)})
+\end{cases}   
+$$
+
+下面我们来对公式进行推导，一般求函数极致有一个方法就是导数法，我们在求代价函数的极小值的时候，算出代价函数的导函数，然后令导函数为零，算出对应的值，还是先从最简单的开始，假设代价函数为：
+$$
+J(\theta_1) = \ \frac{ 7 }{ 3 }{ (\theta_1 - 1)^2}
+$$
+
+可以看到代价函数是一个一元二次函数，对 $\theta_1$ 进行求导，你可先按照整式的乘积算好了再求导，也可以直接利用复合函数的求导法则进行求导，这里按照复合函数的求导方式进行求导：    
+$$
+\begin{cases}
+J^{'}(\theta_1) = \ \frac{ 7 }{ 3 }*2*{ (\theta_1 - 1)*1}\\
+J^{'}(\theta_1) = \ \frac{ 14 }{ 3 }{ (\theta_1 - 1)}
 \end{cases}
 $$
+我们令到函数等于0可以算得当 $\theta_1$ 等于1的时候，代价函数取得最小值0。   
+对于上面的二元的代价函数 $J(\theta_0, \theta_1) = \frac{ 1 }{ 2*m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})^2$ 则需要分别对 $\theta_0$ 和 $\theta_1$ 求偏导：
+
+$$
+\begin{cases}
+ \frac{\partial}{\partial \theta_0}J(\theta_0, \theta_1) = \frac{ 1 }{ 2*m }\sum_{i=1}^m 2*(\theta_0 + \theta_1x^{(i)} - y^{(i)})*1 \\
+  \frac{\partial}{\partial \theta_1}J(\theta_0, \theta_1) = \frac{ 1 }{ 2*m }\sum_{i=1}^m 2*(\theta_0 + \theta_1x^{(i)} - y^{(i)})*x^{(i)}
+\end{cases}
+$$
+
+化简一下：
+
+$$
+\begin{cases}
+ \frac{\partial}{\partial \theta_0}J(\theta_0, \theta_1) = \frac{ 1 }{ m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)}) \\
+  \frac{\partial}{\partial \theta_1}J(\theta_0, \theta_1) = \frac{ 1 }{ m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})*x^{(i)}
+\end{cases}
+$$
+
+我们令偏导数都等于0,然后进行一步步的计算，计算过程其实很简单，主要用到了求和公式的一些特性罢了，详细的过程如下：
+
+$$
+\begin{cases}
+ \frac{ 1 }{ m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})=0 \\
+ \frac{ 1 }{ m }\sum_{i=1}^m (\theta_0 + \theta_1x^{(i)} - y^{(i)})*x^{(i)} =0
+ \end{cases}\\
+\qquad\Downarrow \\
+ \begin{cases}
+\sum_{i=1}^m \theta_0 + \sum_{i=1}^m\theta_1x^{(i)} - \sum_{i=1}^my^{(i)}=0 \\
+\sum_{i=1}^m \theta_0*x^{(i)} + \sum_{i=1}^m\theta_1x^{(i)}*x^{(i)} - \sum_{i=1}^my^{(i)}*x^{(i)} =0
+  \end{cases} \\
+\qquad\Downarrow \\
+  \begin{cases}
+ m*\theta_0 + \theta_1*\sum_{i=1}^mx^{(i)} - \sum_{i=1}^my^{(i)}=0 \\
+ \theta_0*\sum_{i=1}^m x^{(i)} + \theta_1*\sum_{i=1}^mx^{(i)}*x^{(i)} - \sum_{i=1}^my^{(i)}*x^{(i)} =0
+   \end{cases}\\
+\qquad\Downarrow \\
+   \begin{cases}
+  \theta_0 = \frac{ 1 }{ m }(\sum_{i=1}^my^{(i)}-\theta_1*\sum_{i=1}^mx^{(i)})  \\
+  \theta_0*\sum_{i=1}^m x^{(i)} + \theta_1*\sum_{i=1}^mx^{(i)}*x^{(i)} - \sum_{i=1}^my^{(i)}*x^{(i)} =0
+    \end{cases}\\
+\qquad\Downarrow \\
+       \begin{cases}
+      \theta_0 = \frac{ 1 }{ m }(\sum_{i=1}^my^{(i)}-\theta_1*\sum_{i=1}^mx^{(i)})  \\
+      \frac{ 1 }{ m }(\sum_{i=1}^my^{(i)}-\theta_1*\sum_{i=1}^mx^{(i)})*\sum_{i=1}^m x^{(i)} + \theta_1*\sum_{i=1}^mx^{(i)}*x^{(i)} - \sum_{i=1}^my^{(i)}*x^{(i)} =0
+        \end{cases}\\
+\qquad\Downarrow \\
+\begin{cases}
+\theta_0 = \frac{ 1 }{ m }(\sum_{i=1}^my^{(i)}-\theta_1*\sum_{i=1}^mx^{(i)})  \\
+\frac{ 1 }{ m }\sum_{i=1}^my^{(i)}*\sum_{i=1}^m x^{(i)} -\frac{ 1 }{ m }*\theta_1*\sum_{i=1}^mx^{(i)}*\sum_{i=1}^m x^{(i)} + \theta_1*\sum_{i=1}^mx^{(i)}*x^{(i)} - \sum_{i=1}^my^{(i)}*x^{(i)} =0
+\end{cases}\\
+\qquad\Downarrow \\
+\begin{cases}
+\theta_0 = \frac{ 1 }{ m }(\sum_{i=1}^my^{(i)}-\theta_1*\sum_{i=1}^mx^{(i)})  \\
+\frac{ 1 }{ m }\sum_{i=1}^my^{(i)}*\sum_{i=1}^m x^{(i)}  - \sum_{i=1}^my^{(i)}*x^{(i)} =\theta_1*(\frac{ 1 }{ m }*\sum_{i=1}^mx^{(i)}*\sum_{i=1}^m x^{(i)} - \sum_{i=1}^mx^{(i)}*x^{(i)})
+\end{cases}\\
+\qquad\Downarrow \\
+\begin{cases}
+\theta_0 = \frac{ 1 }{ m }(\sum_{i=1}^my^{(i)}-\theta_1*\sum_{i=1}^mx^{(i)})  \\
+\theta_1 = \frac{\frac{ 1 }{ m }\sum_{i=1}^my^{(i)}*\sum_{i=1}^m x^{(i)}  - \sum_{i=1}^my^{(i)}*x^{(i)}}{\frac{ 1 }{ m }*(\sum_{i=1}^mx^{(i)})^2 - \sum_{i=1}^m(x^{(i)})^2}
+\end{cases}\\
+$$  
+
+
+
 
 ### 1.5. 梯度下降法
 
